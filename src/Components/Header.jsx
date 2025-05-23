@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import NavBar from "./NavBar";
 
 const Header = () => {
-    return (
-        <div>
-            asdasd
-        </div>
-    );
+  return <NavBar></NavBar>;
 };
 
 export default Header;
