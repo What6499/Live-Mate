@@ -1,12 +1,44 @@
-import React from "react";
-
+import React, { use } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import groovyWalk from "../src/assets/groovywalk.json";
+import Lottie from "lottie-react";
+import Swal from "sweetalert2";
 const AddToFindRoommate = () => {
+  const { user } = use(AuthContext);
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Lottie animationData={groovyWalk} loop={true} className="w-72 h-72" />
+        <p className="mt-4 text-lg font-semibold animate-pulse">
+          Loading user info...
+        </p>
+      </div>
+    );
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const listing = Object.fromEntries(formData.entries());
-    console.log(listing);
+    listing.likeCount = 0;
+
+    fetch("http://localhost:3000/add-to-find-roommate", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(listing),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Response data:", data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Your Post Has been added successfully!",
+            icon: "success",
+            draggable: true,
+          });
+          form.reset();
+        }
+      });
   };
   return (
     <>
@@ -21,6 +53,7 @@ const AddToFindRoommate = () => {
           <fieldset className="fieldset y-2 ">
             <legend className="fieldset-legend text-xl">Title</legend>
             <input
+              required
               name="title"
               type="text"
               className="input w-full  focus:outline-0"
@@ -30,6 +63,7 @@ const AddToFindRoommate = () => {
           <fieldset className="fieldset y-2 ">
             <legend className="fieldset-legend text-xl">Location</legend>
             <input
+              required
               name="location"
               type="text"
               className="input w-full  focus:outline-0"
@@ -37,8 +71,11 @@ const AddToFindRoommate = () => {
             />
           </fieldset>
           <fieldset className="fieldset y-2 ">
-            <legend className="fieldset-legend text-xl">Rent Amount</legend>
+            <legend className="fieldset-legend text-xl">
+              Rent Amount ($/month)
+            </legend>
             <input
+              required
               name="rent"
               type="text"
               className="input w-full  focus:outline-0"
@@ -48,6 +85,7 @@ const AddToFindRoommate = () => {
           <fieldset className="fieldset  y-2">
             <legend className="fieldset-legend text-xl">Room Type</legend>
             <input
+              required
               name="type"
               type="text"
               className="input w-full  focus:outline-0"
@@ -59,6 +97,7 @@ const AddToFindRoommate = () => {
               Lifestyle Preferences
             </legend>
             <input
+              required
               name="lifestyle"
               type="text"
               className="input w-full  focus:outline-0"
@@ -68,6 +107,7 @@ const AddToFindRoommate = () => {
           <fieldset className="fieldset y-2 ">
             <legend className="fieldset-legend text-xl">Description</legend>
             <input
+              required
               name="description"
               type="text"
               className="input w-full  focus:outline-0"
@@ -77,6 +117,7 @@ const AddToFindRoommate = () => {
           <fieldset className="fieldset y-2 ">
             <legend className="fieldset-legend text-xl">Contact Info</legend>
             <input
+              required
               pattern="^\d+$"
               name="contact"
               type="text"
@@ -101,6 +142,8 @@ const AddToFindRoommate = () => {
             <input
               name="userEmail"
               type="email"
+              readOnly
+              value={user.email || ""}
               className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
@@ -109,7 +152,9 @@ const AddToFindRoommate = () => {
             <legend className="fieldset-legend text-xl">User Name</legend>
             <input
               name="userName"
+              value={user.displayName || ""}
               type="text"
+              readOnly
               className="input w-full  focus:outline-0"
               placeholder="Type here"
             />

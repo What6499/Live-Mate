@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const NavBar = () => {
   const { user, logOut } = use(AuthContext);
+
   const handleSignOut = () => {
     logOut();
   };
@@ -108,12 +109,8 @@ const NavBar = () => {
         {user ? (
           <div className="flex items-center gap-2 ">
             <div className="relative group flex items-center">
-              <img
-                className="size-12 rounded-full "
-                src={user.photoURL}
-                alt=""
-              />
-              <p className="absolute opacity-0 group-hover:opacity-100 font-bold transition-opacity duration-200 right-16 whitespace-nowrap">
+              <img className="size-12 rounded-full " src={user.photoURL} />
+              <p className="absolute right-16 whitespace-nowrap font-bold transition-opacity duration-200 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto bg-white shadow px-2 py-1 rounded">
                 {user.displayName}
               </p>
             </div>

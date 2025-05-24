@@ -8,6 +8,7 @@ import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
 import AddToFindRoommate from "../../Pages/AddToFindRoommate";
 import ForgotPassword from "../../Pages/ForgotPassword";
+import UpdateListing from "../../Pages/UpdateListing";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         index: true,
+
         Component: Home,
       },
       {
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/forgot-password",
         Component: ForgotPassword,
+      },
+      {
+        path: "update-listing/:id",
+        Component: UpdateListing,
       },
     ],
   },

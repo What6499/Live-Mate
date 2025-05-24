@@ -1,12 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; 
+import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/featured-posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, []);
   const sliderImages = [
     {
       id: 1,
@@ -75,6 +82,36 @@ const Home = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="max-w-7xl mx-auto my-10">
+        <h2 className="text-3xl font-bold mb-6 text-center">Featured Posts</h2>
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {posts.map((post) => (
+            <SwiperSlide key={post._id}>
+              <div className="p-4 px-8 border rounded-lg shadow hover:shadow-lg min-h-72 relative">
+                <h3 className="text-xl font-semibold">{post.title}</h3>
+                <p className="text-gray-600">{post.location}</p>
+                <p className="text-green-600 font-bold">Rent: ${post.rent}</p>
+                <p className="text-sm text-gray-500 mt-1">{post.description}</p>
+
+              
+                  <p className="mt-2 text-sm">Room Type: {post.type}</p>
+                  <button className="btn absolute right-8 bottom-8">See More</button>
+              
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 };
