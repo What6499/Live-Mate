@@ -7,12 +7,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import FAQ from "./FAQ";
 import { Helmet } from "react-helmet-async";
+import TypewriterEffect from "./TypewriterEffect";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/featured-posts")
+    fetch("https://live-mates-server.vercel.app/featured-posts")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
@@ -49,6 +50,7 @@ const Home = () => {
   ];
   return (
     <>
+    <TypewriterEffect></TypewriterEffect>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}

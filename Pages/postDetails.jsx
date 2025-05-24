@@ -11,7 +11,7 @@ const PostDetails = () => {
   const [listing, setListing] = useState(null);
   const [liked, setLiked] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:3000/listings/${id}`)
+    fetch(`https://live-mates-server.vercel.app/listings/${id}`)
       .then((res) => res.json())
       .then((data) => setListing(data));
   }, [id]);
@@ -24,7 +24,7 @@ const PostDetails = () => {
       ? listing.likeCount - 1
       : listing.likeCount + 1;
 
-    fetch(`http://localhost:3000/details/like/${id}`, {
+    fetch(`https://live-mates-server.vercel.app/details/like/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

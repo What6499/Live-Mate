@@ -10,26 +10,31 @@ const MyListings = () => {
   const { user } = use(AuthContext);
 
   const [myListings, setMyListings] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
   useEffect(() => {
     if (!user) return;
-    fetch("http://localhost:3000/my-listings", {
+
+    fetch("https://live-mates-server.vercel.app/my-listings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: user.email }),
     })
       .then((res) => res.json())
-      .then((data) => setMyListings(data));
+      .then((data) => {
+        setMyListings(data);
+        setLoading(false);
+      });
   }, [user]);
-  if (!user) {
+  if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <Lottie animationData={groovyWalk} loop={true} className="w-72 h-72" />
+        <p className="mt-4 text-lg font-semibold animate-pulse">Loading...</p>
       </div>
     );
   }
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -39,7 +44,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/listings/${id}`, {
+        fetch(`https://live-mates-server.vercel.app/listings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -57,7 +62,10 @@ const MyListings = () => {
 
   return (
     <>
-    <Helmet>My Listing</Helmet>
+      <Helmet>
+        <title>My Listings</title>
+      </Helmet>
+      {}
       <div className="overflow-x-auto p-4 container mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">My Listings</h1>
         <table className="table table-zebra w-full">

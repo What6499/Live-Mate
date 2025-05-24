@@ -23,14 +23,13 @@ const AddToFindRoommate = () => {
     const listing = Object.fromEntries(formData.entries());
     listing.likeCount = 0;
 
-    fetch("http://localhost:3000/add-to-find-roommate", {
+    fetch("https://live-mates-server.vercel.app/add-to-find-roommate", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(listing),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Response data:", data);
         if (data.insertedId) {
           Swal.fire({
             title: "Your Post Has been added successfully!",
@@ -42,9 +41,10 @@ const AddToFindRoommate = () => {
       });
   };
   return (
-    <><Helmet>
-            <title>Add a post</title>
-          </Helmet>
+    <>
+      <Helmet>
+        <title>Add a post</title>
+      </Helmet>
       <div className="  h-full mt-3">
         <h1 className="text-4xl font-bold text-center  mb-8">
           Create a Roommate Post

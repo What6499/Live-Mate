@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router";
-
+import groovyWalk from "../src/assets/groovywalk.json";
+import Lottie from "lottie-react";
 const BrowseListings = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:3000/browse-listings")
+    fetch("https://live-mates-server.vercel.app/browse-listings")
       .then((res) => res.json())
-      .then((data) => setPosts(data));
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      });
   }, []);
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Lottie animationData={groovyWalk} loop={true} className="w-72 h-72" />
+        <p className="mt-4 text-lg font-semibold animate-pulse">
+          Loading Listings...
+        </p>
+      </div>
+    );
+  }
   return (
     <>
       {" "}
