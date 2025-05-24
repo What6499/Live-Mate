@@ -75,8 +75,8 @@ const Home = () => {
                   <p className="text-lg sm:text-2xl lg:text-3xl text-white mb-8">
                     {slide.description}
                   </p>
-                  <Link>
-                    <button className="bg-green-400 text-white px-8 py-3 rounded-full font-medium  transition duration-300">
+                  <Link to={'/browse-listings'}>
+                    <button className="bg-green-400 cursor-pointer text-white px-8 py-3 rounded-full font-medium  transition duration-300">
                       Find Roommate
                     </button>
                   </Link>
