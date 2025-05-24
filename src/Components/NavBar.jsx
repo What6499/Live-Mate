@@ -14,7 +14,7 @@ const NavBar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "underline  font-semibold text-md " : ""
+            isActive ? "underline text-green-500 font-semibold text-md " : ""
           }
           to={"/"}
         >
@@ -24,7 +24,7 @@ const NavBar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "underline  font-semibold text-md " : ""
+            isActive ? "underline text-green-500 font-semibold text-md " : ""
           }
           to={"/add-to-find-roommate"}
         >
@@ -35,7 +35,7 @@ const NavBar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "underline  font-semibold text-md " : ""
+            isActive ? "underline text-green-500 font-semibold text-md " : ""
           }
           to={"/browse-listings"}
         >
@@ -43,16 +43,16 @@ const NavBar = () => {
         </NavLink>
       </li>
 
-      <li>
+      {user && <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "underline  font-semibold text-md " : ""
+            isActive ? "underline text-green-500 font-semibold text-md " : ""
           }
           to={"/my-listings"}
         >
           My Listings
         </NavLink>
-      </li>
+      </li>}
     </>
   );
   return (

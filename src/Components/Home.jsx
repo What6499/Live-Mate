@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import FAQ from "./FAQ";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -114,6 +115,37 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
+      <div className=" py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            Success Stories
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6  rounded-xl shadow">
+              <p className="">
+                “liveMate helped me find the perfect roommate in under a week!”
+              </p>
+              <p className="mt-4 font-semibold">— Sarah, NYU</p>
+            </div>
+            <div className="p-6  rounded-xl shadow">
+              <p className=" dark">
+                “I was so nervous about moving to a new city, but this made it
+                easy.”
+              </p>
+              <p className="mt-4 font-semibold">— Jamal, San Francisco</p>
+            </div>
+            <div className="p-6  rounded-xl shadow">
+              <p className="">
+                “Found someone with the same lifestyle and interests. Game
+                changer.”
+              </p>
+              <p className="mt-4 font-semibold">— Aanya, Toronto</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <FAQ></FAQ>
     </>
   );
 };

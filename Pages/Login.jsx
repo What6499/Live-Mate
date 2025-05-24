@@ -107,9 +107,9 @@ const Login = () => {
               </p>
               <button
                 onClick={handleGoogleLogin}
-                className="btn bg-white text-black border-[#e5e5e5]"
+                className="btn   border-[#e5e5e5]"
               >
-                <svg
+                <svg className="rounded-full"
                   aria-label="Google logo"
                   width="16"
                   height="16"
