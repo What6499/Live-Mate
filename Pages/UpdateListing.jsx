@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import groovyWalk from "../src/assets/groovywalk.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../Context/AuthContext";
+import { Helmet } from "react-helmet-async";
 const UpdateListing = () => {
   const { id } = useParams();
   const { user } = use(AuthContext);
@@ -46,10 +47,13 @@ const UpdateListing = () => {
   }
 
   return (
+    <> <Helmet>
+            <title>Update Post</title>
+          </Helmet>
     <form
       onSubmit={handleUpdate}
-      className="grid grid-cols-2 justify-center mx-auto  gap-x-10 mt-4 max-w-6/10"
-    >
+      className="grid grid-cols-1 md:grid-cols-2 gap-x-6  max-w-5xl w-full p-4 mx-auto"
+      >
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">Title</legend>
         <input
@@ -59,7 +63,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="e.g., 'Looking for a roommate in NYC'"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">Location</legend>
@@ -70,7 +74,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Type here"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">
@@ -83,7 +87,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Type here"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset  y-2">
         <legend className="fieldset-legend text-xl">Room Type</legend>
@@ -94,7 +98,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Single, Shared, etc."
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">
@@ -107,7 +111,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Lifestyle Preferences"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">Description</legend>
@@ -118,7 +122,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Type here"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2 ">
         <legend className="fieldset-legend text-xl">Contact Info</legend>
@@ -130,7 +134,7 @@ const UpdateListing = () => {
           type="text"
           className="input w-full  focus:outline-0"
           placeholder="Enter Contact Number"
-        />
+          />
       </fieldset>
       <fieldset>
         <legend className="fieldset-legend text-xl">Availability</legend>
@@ -138,7 +142,7 @@ const UpdateListing = () => {
           name="availability"
           defaultValue={listing.availability}
           className="select  focus:outline-0  border-gray-300 w-full"
-        >
+          >
           <option disabled={true}>Pick One</option>
           <option>Available</option>
           <option>Not Available</option>
@@ -153,7 +157,7 @@ const UpdateListing = () => {
           value={user.email}
           className="input w-full  focus:outline-0"
           placeholder="Type here"
-        />
+          />
       </fieldset>
       <fieldset className="fieldset y-2">
         <legend className="fieldset-legend text-xl">User Name</legend>
@@ -164,14 +168,15 @@ const UpdateListing = () => {
           readOnly
           className="input w-full  focus:outline-0"
           placeholder="Type here"
-        />
+          />
       </fieldset>
       <input
         type="submit"
         defaultValue={"update"}
         className="btn w-full col-span-full text-white mt-4 bg-green-400 hover:bg-green-500"
-      />
+        />
     </form>
+        </>
   );
 };
 

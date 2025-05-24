@@ -3,6 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import groovyWalk from "../src/assets/groovywalk.json";
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const AddToFindRoommate = () => {
   const { user } = use(AuthContext);
   if (!user) {
@@ -41,7 +42,9 @@ const AddToFindRoommate = () => {
       });
   };
   return (
-    <>
+    <><Helmet>
+            <title>Add a post</title>
+          </Helmet>
       <div className="  h-full mt-3">
         <h1 className="text-4xl font-bold text-center  mb-8">
           Create a Roommate Post

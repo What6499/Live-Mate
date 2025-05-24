@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const PostDetails = () => {
   const { id } = useParams();

@@ -57,10 +57,8 @@ const MyListings = () => {
 
   return (
     <>
-      <Helmet>
-        <title>My Listings</title>
-      </Helmet>
-      <div className="overflow-x-auto p-4 max-w-11/12 mx-auto">
+    <Helmet>My Listing</Helmet>
+      <div className="overflow-x-auto p-4 container mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">My Listings</h1>
         <table className="table table-zebra w-full">
           <thead>

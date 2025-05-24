@@ -6,6 +6,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import FAQ from "./FAQ";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -83,7 +84,7 @@ const Home = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="max-w-7xl mx-auto my-16">
+      <div className="max-w-7xl mx-auto my-16 px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Featured Posts</h2>
         <Swiper
           modules={[Pagination]}
@@ -98,7 +99,7 @@ const Home = () => {
         >
           {posts.map((post) => (
             <SwiperSlide key={post._id}>
-              <div className="p-4 px-8 border rounded-lg shadow hover:shadow-lg min-h-72 relative">
+              <div className="p-4 px-8  rounded-lg shadow hover:shadow-lg min-h-72 relative">
                 <h3 className="text-xl font-semibold">{post.title}</h3>
                 <p className="text-gray-600">{post.location}</p>
                 <p className="text-green-600 font-bold">Rent: ${post.rent}</p>
