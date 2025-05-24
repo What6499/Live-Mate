@@ -1,8 +1,13 @@
-import React from "react";
-import { NavLink } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink } from "react-router";
 import ThemeSwitcher from "../../util/ThemeSwitcher";
+import { AuthContext } from "../../Context/AuthContext";
 
 const NavBar = () => {
+  const { user, logOut } = use(AuthContext);
+  const handleSignOut = () => {
+    logOut();
+  };
   const links = (
     <>
       <li>
@@ -99,6 +104,33 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         <ThemeSwitcher></ThemeSwitcher>
+
+        {user ? (
+          <div className="flex items-center gap-2 ">
+            <div className="relative group flex items-center">
+              <img
+                className="size-12 rounded-full "
+                src={user.photoURL}
+                alt=""
+              />
+              <p className="absolute opacity-0 group-hover:opacity-100 font-bold transition-opacity duration-200 right-16 whitespace-nowrap">
+                {user.displayName}
+              </p>
+            </div>
+            <button
+              onClick={handleSignOut}
+              className="btn btn-outline border-black hover:bg-black hover:text-white"
+            >
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <Link to={"/login"}>
+            <button className="btn bg-green-300 hover:bg-green-300/90 text-[#fefaf6]   md:btn-md lg:btn-lg ">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -14,7 +14,13 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <button onClick={handleSwitch}>{light ? <CiLight /> : <CiDark />}</button>
+    <button onClick={handleSwitch}>
+      {light ? (
+        <CiLight className="text-3xl mr-4" />
+      ) : (
+        <CiDark className="text-3xl mr-4" />
+      )}
+    </button>
   );
 };
 

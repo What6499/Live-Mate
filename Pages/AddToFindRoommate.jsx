@@ -10,8 +10,8 @@ const AddToFindRoommate = () => {
   };
   return (
     <>
-      <div className="bg-[#f0fdf4] h-full ">
-        <h1 className="text-4xl font-bold text-green-600 text-center">
+      <div className="  h-full mt-3">
+        <h1 className="text-4xl font-bold text-center  mb-8">
           Create a Roommate Post
         </h1>
         <form
@@ -23,7 +23,7 @@ const AddToFindRoommate = () => {
             <input
               name="title"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="e.g., 'Looking for a roommate in NYC'"
             />
           </fieldset>
@@ -32,7 +32,7 @@ const AddToFindRoommate = () => {
             <input
               name="location"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
           </fieldset>
@@ -41,7 +41,7 @@ const AddToFindRoommate = () => {
             <input
               name="rent"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
           </fieldset>
@@ -50,7 +50,7 @@ const AddToFindRoommate = () => {
             <input
               name="type"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Single, Shared, etc."
             />
           </fieldset>
@@ -61,7 +61,7 @@ const AddToFindRoommate = () => {
             <input
               name="lifestyle"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Lifestyle Preferences"
             />
           </fieldset>
@@ -70,17 +70,18 @@ const AddToFindRoommate = () => {
             <input
               name="description"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
           </fieldset>
           <fieldset className="fieldset y-2 ">
             <legend className="fieldset-legend text-xl">Contact Info</legend>
             <input
+              pattern="^\d+$"
               name="contact"
-              type="number"
-              className="input w-full"
-              placeholder="Type here"
+              type="text"
+              className="input w-full  focus:outline-0"
+              placeholder="Enter Contact Number"
             />
           </fieldset>
           <fieldset>
@@ -88,7 +89,7 @@ const AddToFindRoommate = () => {
             <select
               name="availability"
               defaultValue="Pick a Runtime"
-              className="select focus:outline-0 border-none w-full"
+              className="select  focus:outline-0  border-gray-300 w-full"
             >
               <option disabled={true}>Pick One</option>
               <option>Available</option>
@@ -99,8 +100,8 @@ const AddToFindRoommate = () => {
             <legend className="fieldset-legend text-xl">User Email</legend>
             <input
               name="userEmail"
-              type="text"
-              className="input w-full"
+              type="email"
+              className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
           </fieldset>
@@ -109,13 +110,13 @@ const AddToFindRoommate = () => {
             <input
               name="userName"
               type="text"
-              className="input w-full"
+              className="input w-full  focus:outline-0"
               placeholder="Type here"
             />
           </fieldset>
           <input
             type="submit"
-            className="btn w-full col-span-full mt-4 bg-green-300 hover:bg-green-400"
+            className="btn w-full col-span-full text-white mt-4 bg-green-400 hover:bg-green-500"
           />
         </form>
       </div>
