@@ -83,7 +83,7 @@ const Home = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="max-w-7xl mx-auto my-10">
+      <div className="max-w-7xl mx-auto my-16">
         <h2 className="text-3xl font-bold mb-6 text-center">Featured Posts</h2>
         <Swiper
           modules={[Pagination]}
@@ -115,26 +115,26 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
-      <div className=" py-12">
-        <div className="max-w-6xl mx-auto px-4">
+      <div className=" py-12  ">
+        <div className="max-w-6xl mx-auto px-4 my-16">
           <h2 className="text-3xl font-bold text-center mb-8">
             Success Stories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6  rounded-xl shadow">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+            <div className="p-6  rounded-xl shadow border border-white">
               <p className="">
                 “liveMate helped me find the perfect roommate in under a week!”
               </p>
               <p className="mt-4 font-semibold">— Sarah, NYU</p>
             </div>
-            <div className="p-6  rounded-xl shadow">
+            <div className="p-6  rounded-xl shadow border border-white">
               <p className=" dark">
                 “I was so nervous about moving to a new city, but this made it
                 easy.”
               </p>
               <p className="mt-4 font-semibold">— Jamal, San Francisco</p>
             </div>
-            <div className="p-6  rounded-xl shadow">
+            <div className="p-6  rounded-xl shadow border border-white">
               <p className="">
                 “Found someone with the same lifestyle and interests. Game
                 changer.”

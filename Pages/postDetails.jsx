@@ -58,6 +58,10 @@ const PostDetails = () => {
   if (!listing) return <div className="text-center mt-8">Loading...</div>;
 
   return (
+    <>
+     <Helmet>
+            <title>Details</title>
+          </Helmet>
     <div className="p-6 max-w-3xl mx-auto">
       <h1 className="text-4xl font-bold mb-4">
         <span className="text-green-500">{listing.title}</span>
@@ -75,13 +79,14 @@ const PostDetails = () => {
       <button
         className="btn mt-4 bg-pink-500 hover:bg-pink-600 text-white"
         onClick={handleLike}
-      >
+        >
         Like
       </button>
       <p className={liked ? "block text-green-600 font-bold" : "hidden"}>
         Contact: {listing.contact}
       </p>
     </div>
+        </>
   );
 };
 
