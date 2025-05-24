@@ -37,7 +37,7 @@ const BrowseListings = () => {
                 <td>{post.userName}</td>
                 <td>
                   <button
-                    onClick={() => navigate(`/post/${post._id}`)}
+                    onClick={() => navigate(`/details/${post._id}`)}
                     className="btn btn-sm bg-green-300 hover:bg-green-600 text-white"
                   >
                     See More

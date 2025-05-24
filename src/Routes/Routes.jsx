@@ -3,7 +3,7 @@ import Root from "../Root/Root";
 import Home from "../Components/Home";
 import MyListings from "../../Pages/MyListings";
 import BrowseListings from "../../Pages/BrowseListings";
-
+import postDetails from "../../Pages/postDetails";
 import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
 import AddToFindRoommate from "../../Pages/AddToFindRoommate";
@@ -45,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "update-listing/:id",
         Component: UpdateListing,
+      },
+      {
+        path: "details/:id",
+        Component: postDetails,
       },
     ],
   },

@@ -103,10 +103,12 @@ const Home = () => {
                 <p className="text-green-600 font-bold">Rent: ${post.rent}</p>
                 <p className="text-sm text-gray-500 mt-1">{post.description}</p>
 
-              
-                  <p className="mt-2 text-sm">Room Type: {post.type}</p>
-                  <button className="btn absolute right-8 bottom-8">See More</button>
-              
+                <p className="mt-2 text-sm">Room Type: {post.type}</p>
+                <Link to={`details/${post._id}`}>
+                  <button className="btn absolute right-8 bottom-8">
+                    See More
+                  </button>
+                </Link>
               </div>
             </SwiperSlide>
           ))}

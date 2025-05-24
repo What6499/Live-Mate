@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer grid lg:justify-around footer-vertical lg:footer-horizontal bg-[#B34D00] text-neutral-content p-10 border-2 mt-24">
+    <footer className="footer grid lg:justify-around footer-vertical lg:footer-horizontal bg-green-300  p-10  mt-24">
       <aside>
         <img
           className="size-12 hidden lg:block"
