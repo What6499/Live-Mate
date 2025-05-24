@@ -14,7 +14,7 @@ const MyListings = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || !myListings) return;
+    if (!user) return;
     fetch("http://localhost:3000/my-listings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
