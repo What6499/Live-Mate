@@ -3,12 +3,14 @@ import Root from "../Root/Root";
 import Home from "../Components/Home";
 import MyListings from "../../Pages/MyListings";
 import BrowseListings from "../../Pages/BrowseListings";
-import postDetails from "../../Pages/postDetails";
+
 import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
 import AddToFindRoommate from "../../Pages/AddToFindRoommate";
 import ForgotPassword from "../../Pages/ForgotPassword";
 import UpdateListing from "../../Pages/UpdateListing";
+import PrivateRoute from "./PrivateRoute";
+import PostDetails from "../../Pages/postDetails";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +25,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-listings",
-        Component: MyListings,
+        element: (
+          <PrivateRoute>
+            <MyListings></MyListings>
+          </PrivateRoute>
+        ),
       },
       {
         path: "browse-listings",
@@ -31,7 +37,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "add-to-find-roommate",
-        Component: AddToFindRoommate,
+        element: (
+          <PrivateRoute>
+            <AddToFindRoommate></AddToFindRoommate>
+          </PrivateRoute>
+        ),
       },
       { path: "/login", Component: Login },
       {
@@ -44,11 +54,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "update-listing/:id",
-        Component: UpdateListing,
+        element: (
+          <PrivateRoute>
+            <UpdateListing></UpdateListing>
+          </PrivateRoute>
+        ),
       },
       {
         path: "details/:id",
-        Component: postDetails,
+        element: (
+          <PrivateRoute>
+            <PostDetails></PostDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },

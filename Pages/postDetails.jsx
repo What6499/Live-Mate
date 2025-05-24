@@ -1,10 +1,9 @@
-// pages/DetailsPage.jsx
 import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
 
-const DetailsPage = () => {
+const PostDetails = () => {
   const { id } = useParams();
   const { user } = use(AuthContext);
 
@@ -79,9 +78,11 @@ const DetailsPage = () => {
       >
         Like
       </button>
-      <p className={liked ? "block text-green-600 font-bold" : "hidden"}>Contact: {listing.contact}</p>
+      <p className={liked ? "block text-green-600 font-bold" : "hidden"}>
+        Contact: {listing.contact}
+      </p>
     </div>
   );
 };
 
-export default DetailsPage;
+export default PostDetails;
