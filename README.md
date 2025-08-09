@@ -1,13 +1,68 @@
-# React + Vite
+# liveMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A roommate finder web application where users can create and browse posts to find compatible roommates by location, preferences, and available rooms.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## Expanding the ESLint configuration
+![liveMate Screenshot](./screenshot.png)  
+*(Replace with your actual screenshot file or link)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# b11a10-client-side-What6499
+---
+
+## Technologies Used
+
+- **React 19** – Frontend library  
+- **Vite** – Fast development build tool  
+- **Tailwind CSS & DaisyUI** – Utility-first CSS framework and UI components  
+- **Firebase** – Backend services (authentication, database)  
+- **React Router** – Client-side routing  
+- **React Toastify** – Notifications  
+- **SweetAlert2** – Alert popups  
+- **Swiper** – Carousel/slider UI  
+- **Lottie React** – Animations  
+- **React Helmet Async** – Manage document head for SEO  
+
+---
+
+## Core Features
+
+- User authentication with Firebase  
+- Create, edit, and delete roommate posts  
+- Browse and search roommate posts by location and preferences  
+- Responsive UI with Tailwind CSS and DaisyUI  
+- Notifications and alerts for user actions  
+- Animated and interactive UI elements  
+
+---
+
+## Dependencies
+
+Key dependencies listed in `package.json`:
+
+- react, react-dom  
+- react-router  
+- firebase  
+- tailwindcss, daisyui  
+- react-toastify  
+- sweetalert2  
+- lottie-react  
+- swiper  
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)  
+- npm or yarn  
+
+### Installation
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/yourusername/live-mate-client.git
+   cd live-mate-client
