@@ -61,4 +61,5 @@ Key dependencies listed in `package.json`:
   
    git clone https://github.com/What6499/live-mate-client.git
    cd live-mate-client
-2. run "npm i" and it will install all the necessary packages.
+2. Open in your IDE or terminal
+3. run "npm i" and it will install all the necessary packages.
