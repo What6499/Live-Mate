@@ -3,6 +3,9 @@
 A roommate finder web application where users can create and browse posts to find compatible roommates by location, preferences, and available rooms.
 
 ---
+##  Live URL
+
+[🔗 Click here to visit the live site](https://live-mate.web.app/)
 
 ## Technologies Used
 
@@ -50,10 +53,8 @@ Key dependencies listed in `package.json`:
 ### Prerequisites
 
 - Node.js (v16 or higher recommended)  
-- npm or yarn  
-
-## live-link
-- https://live-mate.web.app/
+- npm or yarn
+  
 ### Installation
 
 1. Clone the repo:
