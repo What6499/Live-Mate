@@ -4,13 +4,6 @@ A roommate finder web application where users can create and browse posts to fin
 
 ---
 
-## Demo
-
-![liveMate Screenshot](./screenshot.png)  
-*(Replace with your actual screenshot file or link)*
-
----
-
 ## Technologies Used
 
 - **React 19** – Frontend library  
@@ -59,10 +52,13 @@ Key dependencies listed in `package.json`:
 - Node.js (v16 or higher recommended)  
 - npm or yarn  
 
+## live-link
+- https://live-mate.web.app/
 ### Installation
 
 1. Clone the repo:
 
-   ```bash
-   git clone https://github.com/yourusername/live-mate-client.git
+  
+   git clone https://github.com/What6499/live-mate-client.git
    cd live-mate-client
+2. run "npm i" and it will install all the necessary packages.
